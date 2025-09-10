@@ -10,6 +10,18 @@ public class Customer {
     private boolean active;
     private List<Product> products = new ArrayList<>();
 
+    public Customer() {
+    }
+
+    public Customer(String name) {
+        this.name = name;
+    }
+
+    public Customer(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
@@ -56,6 +68,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return String.format("Покупатель: id - %d, имя - %s, активен - %d, лист покупок - %s.", id, name, active, products);
+        return String.format("Покупатель: id - %d, имя - %s, активен - %b, лист покупок - %s.", id, name, active, products);
     }
 }

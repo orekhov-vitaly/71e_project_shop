@@ -67,23 +67,31 @@ public class Test {
 //        repository.deleteById(2);
 //    }
 
+//    public static void main(String[] args) throws IOException {
+//        CustomerRepository repository = new CustomerRepository();
+//
+//        Customer customer1 = new Customer();
+//        customer1.setName("Маша");
+//        customer1.setActive(true);
+//
+//        Customer customer2 = new Customer();
+//        customer2.setName("Петя");
+//        customer2.setActive(true);
+//
+//        Customer customer3 = new Customer();
+//        customer3.setName("Вова");
+//        customer3.setActive(true);
+//
+//        repository.save(customer1);
+//        repository.save(customer2);
+//        repository.save(customer3);
+//
+//        repository.findAll().forEach(System.out::println);
+//    }
+
     public static void main(String[] args) throws IOException {
         CustomerRepository repository = new CustomerRepository();
 
-        Customer customer1 = new Customer();
-        customer1.setName("Маша");
-        customer1.setActive(true);
-
-        Customer customer2 = new Customer();
-        customer2.setName("Петя");
-        customer2.setActive(true);
-
-        Customer customer3 = new Customer();
-        customer3.setName("Вова");
-        customer3.setActive(true);
-
-        repository.save(customer1);
-        repository.save(customer2);
-        repository.save(customer3);
+        repository.findAll().forEach(System.out::println);
     }
 }

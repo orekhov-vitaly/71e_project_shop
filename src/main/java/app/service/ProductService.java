@@ -25,7 +25,7 @@ public class ProductService {
         repository = new ProductRepository();
     }
 
-    //   Сохранить продукт в базе данных (при сохранении продукт автоматически считается активным).
+    // Сохранить продукт в базе данных (при сохранении продукт автоматически считается активным).
     public Product save(Product product) throws ProductSaveException, IOException {
         if (product == null) {
             throw new ProductSaveException("Продукт не может быть null");
@@ -44,7 +44,7 @@ public class ProductService {
         return repository.save(product);
     }
 
-    //   Вернуть все продукты из базы данных (активные).
+    // Вернуть все продукты из базы данных (активные).
     public List<Product> getAllActiveProducts() throws IOException {
         return repository.findAll()
                 .stream()
@@ -52,7 +52,7 @@ public class ProductService {
                 .toList();
     }
 
-    //   Вернуть один продукт из базы данных по его идентификатору (если он активен).
+    // Вернуть один продукт из базы данных по его идентификатору (если он активен).
     public Product getActiveProductById(int id) throws IOException, ProductNotFoundException {
         Product product = repository.findById(id);
 
@@ -64,7 +64,7 @@ public class ProductService {
     }
 
 
-    //   Изменить один продукт в базе данных по его идентификатору.
+    // Изменить один продукт в базе данных по его идентификатору.
     public void update(Product product) throws ProductUpdateException, IOException {
         if (product == null) {
             throw new ProductUpdateException("Продукт не может быть null");
@@ -77,12 +77,12 @@ public class ProductService {
         repository.update(product);
     }
 
-    //   Удалить продукт из базы данных по его идентификатору.
+    // Удалить продукт из базы данных по его идентификатору.
     public void deleteById(int id) throws IOException, ProductNotFoundException {
         getActiveProductById(id).setActive(false);
     }
 
-    //   Удалить продукт из базы данных по его наименованию.
+    // Удалить продукт из базы данных по его наименованию.
     public void deleteByTitle(String title) throws IOException {
         getAllActiveProducts()
                 .stream()
@@ -90,7 +90,7 @@ public class ProductService {
                 .forEach(x -> x.setActive(false));
     }
 
-    //   Восстановить удалённый продукт в базе данных по его идентификатору.
+    // Восстановить удалённый продукт в базе данных по его идентификатору.
     public void restoreById(int id) throws IOException, ProductNotFoundException {
         Product product = repository.findById(id);
 
@@ -101,12 +101,12 @@ public class ProductService {
         }
     }
 
-    //   Вернуть общее количество продуктов в базе данных (активных).
+    // Вернуть общее количество продуктов в базе данных (активных).
     public int getActiveProductsCount() throws IOException {
         return getAllActiveProducts().size();
     }
 
-    //   Вернуть суммарную стоимость всех продуктов в базе данных (активных).
+    // Вернуть суммарную стоимость всех продуктов в базе данных (активных).
     public double getActiveProductsTotalCost() throws IOException {
         return getAllActiveProducts()
                 .stream()
@@ -114,7 +114,7 @@ public class ProductService {
                 .sum();
     }
 
-    //   Вернуть среднюю стоимость продукта в базе данных (из активных)
+    // Вернуть среднюю стоимость продукта в базе данных (из активных)
     public double getActiveProductsAveragePrice() throws IOException {
         int productCount = getActiveProductsCount();
 
