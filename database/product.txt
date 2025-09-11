@@ -1,7 +1,7 @@
 [ {
   "id" : 1,
   "title" : "Яблоко",
-  "price" : 85.0,
+  "price" : 88.0,
   "active" : true
 }, {
   "id" : 3,
@@ -16,6 +16,6 @@
 }, {
   "id" : 5,
   "title" : "Банан",
-  "price" : 120.0,
+  "price" : 130.0,
   "active" : true
 } ]

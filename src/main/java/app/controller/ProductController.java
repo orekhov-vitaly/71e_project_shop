@@ -38,7 +38,7 @@ public class ProductController {
         service.deleteById(id);
     }
 
-    public void deleteByTitle(String title) throws IOException {
+    public void deleteByTitle(String title) throws IOException, ProductNotFoundException {
         service.deleteByTitle(title);
     }
 
