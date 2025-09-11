@@ -1,6 +1,6 @@
 [ {
   "id" : 1,
-  "name" : "Маша",
+  "name" : "Миша",
   "active" : true,
   "products" : [ ]
 }, {
@@ -11,6 +11,11 @@
 }, {
   "id" : 3,
   "name" : "Вова",
+  "active" : true,
+  "products" : [ ]
+}, {
+  "id" : 4,
+  "name" : "Виталий",
   "active" : true,
   "products" : [ ]
 } ]

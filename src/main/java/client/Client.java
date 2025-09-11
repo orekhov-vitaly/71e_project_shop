@@ -62,25 +62,51 @@ public class Client {
 
                 switch (input) {
                     case "1":
+                        System.out.println("Введите название продукта:");
+                        String title = scanner.nextLine();
+                        System.out.println("Введите цену продукта:");
+                        double price = Double.parseDouble(scanner.nextLine());
+                        System.out.println(productController.save(title, price));
                         break;
                     case "2":
                         productController.getAllActiveProducts().forEach(System.out::println);
                         break;
                     case "3":
+                        System.out.println("Введите идентификатор продукта:");
+                        int id = Integer.parseInt(scanner.nextLine());
+                        System.out.println(productController.getActiveProductById(id));
                         break;
                     case "4":
+                        System.out.println("Введите идентификатор продукта:");
+                        id = Integer.parseInt(scanner.nextLine());
+                        System.out.println("Введите новую цену продукта:");
+                        price = Double.parseDouble(scanner.nextLine());
+                        productController.update(id, price);
+                        System.out.println(productController.getActiveProductById(id));
                         break;
                     case "5":
+                        System.out.println("Введите идентификатор продукта:");
+                        id = Integer.parseInt(scanner.nextLine());
+                        productController.deleteById(id);
                         break;
                     case "6":
+                        System.out.println("Введите название продукта:");
+                        title = scanner.nextLine();
+                        productController.deleteByTitle(title);
                         break;
                     case "7":
+                        System.out.println("Введите идентификатор продукта:");
+                        id = Integer.parseInt(scanner.nextLine());
+                        productController.restoreById(id);
                         break;
                     case "8":
+                        System.out.println("Количество продуктов: " + productController.getActiveProductsCount());
                         break;
                     case "9":
+                        System.out.println("Суммарная стоимость всех продуктов: " + productController.getActiveProductsTotalCost());
                         break;
                     case "10":
+                        System.out.println("Средняя стоимость продукта: " + productController.getActiveProductsAveragePrice());
                         break;
                     case "0":
                         return;
@@ -116,31 +142,71 @@ public class Client {
 
                 switch (input) {
                     case "1":
+                        System.out.println("Введите имя нового покупателя:");
+                        String name = scanner.nextLine();
+                        customerController.save(name);
                         break;
                     case "2":
                         customerController.getAllActiveCustomers().forEach(System.out::println);
                         break;
                     case "3":
+                        System.out.println("Введите идентификатор покупателя:");
+                        int id = Integer.parseInt(scanner.nextLine());
+                        System.out.println(customerController.getActiveCustomerById(id));
                         break;
                     case "4":
+                        System.out.println("Введите идентификатор покупателя:");
+                        id = Integer.parseInt(scanner.nextLine());
+                        System.out.println("Введите имя покупателя:");
+                        name = scanner.nextLine();
+                        customerController.update(id, name);
                         break;
                     case "5":
+                        System.out.println("Введите идентификатор покупателя:");
+                        id = Integer.parseInt(scanner.nextLine());
+                        customerController.deleteById(id);
                         break;
                     case "6":
+                        System.out.println("Введите имя покупателя:");
+                        name = scanner.nextLine();
+                        customerController.deleteByName(name);
                         break;
                     case "7":
+                        System.out.println("Введите идентификатор покупателя:");
+                        id = Integer.parseInt(scanner.nextLine());
+                        customerController.restoreById(id);
                         break;
                     case "8":
+                        System.out.println("Количество покупателей: " + customerController.getActiveCustomersCount());
                         break;
                     case "9":
+                        System.out.println("Введите идентификатор покупателя:");
+                        id = Integer.parseInt(scanner.nextLine());
+                        System.out.println("Стоимость корзины покупателя: " + customerController.getCustomerCaretTotalPrice(id));
                         break;
                     case "10":
+                        System.out.println("Введите идентификатор покупателя:");
+                        id = Integer.parseInt(scanner.nextLine());
+                        System.out.println("Средняя стоимость продукта в корзине покупателя: " + customerController.getCustomerCartAveragePrice(id));
                         break;
                     case "11":
+                        System.out.println("Введите идентификатор покупателя:");
+                        int customerId = Integer.parseInt(scanner.nextLine());
+                        System.out.println("Введите идентификатор продукта:");
+                        int productId = Integer.parseInt(scanner.nextLine());
+                        customerController.addProductToCustomerCart(customerId, productId);
                         break;
                     case "12":
+                        System.out.println("Введите идентификатор покупателя:");
+                        customerId = Integer.parseInt(scanner.nextLine());
+                        System.out.println("Введите идентификатор продукта:");
+                        productId = Integer.parseInt(scanner.nextLine());
+                        customerController.removeProductFromCustomerCart(customerId,productId);
                         break;
                     case "13":
+                        System.out.println("Введите идентификатор покупателя:");
+                        id = Integer.parseInt(scanner.nextLine());
+                        customerController.clearCustomerCart(id);
                         break;
                     case "0":
                         return;
