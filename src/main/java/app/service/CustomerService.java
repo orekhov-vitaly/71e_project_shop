@@ -104,7 +104,7 @@ public class CustomerService {
     }
 
     // Вернуть стоимость корзины покупателя по его идентификатору (если он активен)
-    public double getCustomerCaretTotalPrice(int id) throws IOException, CustomerNotFoundException {
+    public double getCustomerCartTotalPrice(int id) throws IOException, CustomerNotFoundException {
         return getActiveCustomerById(id).getProducts()
                 .stream()
                 .filter(Product::isActive)

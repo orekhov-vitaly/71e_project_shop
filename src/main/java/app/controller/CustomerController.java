@@ -52,7 +52,7 @@ public class CustomerController {
     }
 
     public double getCustomerCaretTotalPrice(int id) throws IOException, CustomerNotFoundException {
-        return service.getCustomerCaretTotalPrice(id);
+        return service.getCustomerCartTotalPrice(id);
     }
 
     public double getCustomerCartAveragePrice(int id) throws IOException, CustomerNotFoundException {
